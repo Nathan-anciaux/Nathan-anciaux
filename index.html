@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nathan Anciaux · Mathematics & Computer Science</title>
+  <meta name="description"
+    content="Nathan Anciaux, mathematics and computer science student (CMI OSIA, University of Bordeaux), working towards quantitative research.">
+  <meta name="theme-color" content="#0b0c0f">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+
+  <script>
+    /* Masque les éléments animés avant le premier rendu, sauf si l'utilisateur
+       a demandé moins d'animations. Filet de sécurité : si le JS n'a pas pris
+       la main au bout de 3 s (CDN bloqué), tout redevient visible. */
+    (function () {
+      var d = document.documentElement;
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduce) return;
+      d.classList.add('js-anim');
+      setTimeout(function () {
+        if (!d.classList.contains('anim-ready')) d.classList.remove('js-anim');
+      }, 3000);
+    })();
+  </script>
+</head>
+
+<body>
+  <a class="skip" href="#main" data-i18n="skip">Skip to content</a>
+
+  <!-- Fond 3D fixe, piloté par le défilement (js/scene.js) -->
+  <canvas class="scene" id="scene" aria-hidden="true"></canvas>
+  <div class="vignette" aria-hidden="true"></div>
+
+  <!-- ============ Navigation ============ -->
+  <header class="nav" id="nav">
+    <div class="nav__inner container">
+      <a class="nav__logo mono" href="#top" aria-label="Nathan Anciaux">N<span>/</span>A</a>
+
+      <nav class="nav__links" id="navLinks" data-i18n-aria="nav.aria" aria-label="Main navigation">
+        <a href="#about" data-i18n="nav.about">About</a>
+        <a href="#education" data-i18n="nav.education">Education</a>
+        <a href="#projects" data-i18n="nav.projects">Projects</a>
+        <a href="#experience" data-i18n="nav.experience">Experience</a>
+        <a href="#skills" data-i18n="nav.skills">Skills</a>
+        <a href="#beyond" data-i18n="nav.beyond">Beyond</a>
+        <a href="#contact" data-i18n="nav.contact">Contact</a>
+      </nav>
+
+      <div class="nav__tools">
+        <div class="lang mono" role="group" data-i18n-aria="lang.aria" aria-label="Language">
+          <button type="button" data-lang="en" aria-pressed="true">EN</button>
+          <span aria-hidden="true">/</span>
+          <button type="button" data-lang="fr" aria-pressed="false">FR</button>
+        </div>
+        <button class="nav__toggle mono" id="navToggle" type="button" aria-expanded="false"
+          aria-controls="navLinks">Menu</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+
+    <!-- ============ Hero ============ -->
+    <section class="hero" id="top">
+      <div class="hero__content container">
+        <p class="label mono intro" data-scramble data-i18n="hero.label">Portfolio · 2026</p>
+        <h1 class="display hero__title intro">Nathan<br>Anciaux</h1>
+        <p class="hero__subtitle intro" data-i18n="hero.subtitle">Mathematics &amp; computer science student, working
+          towards quantitative research.</p>
+        <p class="hero__meta mono intro" data-i18n="hero.meta">Bordeaux, France · CMI OSIA · Year 3</p>
+      </div>
+
+      <a class="hero__scroll mono intro" href="#statement">
+        <span data-i18n="hero.scroll">Scroll to explore</span>
+        <span class="hero__scroll-line" aria-hidden="true"></span>
+      </a>
+    </section>
+
+    <!-- ============ Accroche ============ -->
+    <section class="statement" id="statement">
+      <div class="container">
+        <p class="statement__text reveal" data-i18n-html="statement">I study the mathematics of <em>decisions under
+            uncertainty</em>: probability, optimisation and algorithms.</p>
+      </div>
+    </section>
+
+    <!-- ============ Chiffres clés ============ -->
+    <section class="figures" data-i18n-aria="figures.aria" aria-label="Key figures">
+      <div class="container figures__grid">
+        <div class="figure reveal">
+          <p class="figure__num display"><span class="count" data-count="7">7</span></p>
+          <p class="figure__cap" data-i18n="f1.cap">projects, from automata to markets</p>
+        </div>
+        <div class="figure reveal">
+          <p class="figure__num display"><span class="figure__unit" data-i18n="f2.pre">Top</span> <span class="count"
+              data-count="10">10</span><span class="figure__unit" data-i18n="f2.post">%</span></p>
+          <p class="figure__cap" data-i18n="f2.cap">in Introduction to Linear Optimisation, year 2 (6th of 60)</p>
+        </div>
+        <div class="figure reveal">
+          <p class="figure__num display"><span class="count" data-count="2783">2,783</span></p>
+          <p class="figure__cap" data-i18n="f3.cap">travelling-salesman instances in my simulated annealing project</p>
+        </div>
+        <div class="figure reveal">
+          <p class="figure__num display">2027</p>
+          <p class="figure__cap" data-i18n="f4.cap">internship target, summer 2027: finance or mathematical research</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 01 Profil ============ -->
+    <section class="section" id="about">
+      <div class="container section__grid">
+        <p class="section__label label mono" data-scramble data-i18n="about.label">01 · About</p>
+        <div class="section__body">
+          <h2 class="section__title reveal" data-i18n="about.title">Rigour first, then markets.</h2>
+          <div class="about">
+            <div class="prose reveal">
+              <p data-i18n="about.p1">I am a third-year student in Mathematics and Computer Science at the University
+                of Bordeaux, in the CMI OSIA programme: Optimisation, Statistics and Artificial Intelligence. It is a
+                five-year integrated Master's track, with research projects from year 3, at least three internships and
+                a mandatory stay abroad.</p>
+              <p data-i18n="about.p2">Strongly drawn to finance, I want to put my knowledge of data and AI into practice
+                in banking and finance. My goal is quantitative research: I am preparing to apply for a Master's in
+                applied mathematics in Paris, and I am looking for an internship of at least two months for summer 2027,
+                on a trading floor, in asset management or in mathematical research.</p>
+              <p data-i18n="about.p3">Persistent, organised and at ease with people, I enjoy taking on challenges as a
+                team and contributing concretely to projects.</p>
+            </div>
+            <figure class="portrait reveal">
+              <div class="portrait__frame">
+                <span class="portrait__ring" aria-hidden="true"></span>
+                <img class="portrait__img" src="assets/portrait.png" width="241" height="294" alt="Nathan Anciaux"
+                  loading="lazy" decoding="async">
+              </div>
+              <figcaption class="portrait__cap mono">N. Anciaux · Bordeaux</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 02 Formation ============ -->
+    <section class="section" id="education">
+      <div class="container section__grid">
+        <p class="section__label label mono" data-scramble data-i18n="edu.label">02 · Education</p>
+        <div class="section__body">
+          <h2 class="section__title reveal" data-i18n="edu.title">Building a solid mathematical foundation.</h2>
+          <ol class="timeline">
+            <li class="timeline__item reveal">
+              <p class="timeline__date mono">2024 – 2029</p>
+              <div class="timeline__main">
+                <h3 class="timeline__title" data-i18n="edu1.title">CMI OSIA, Mathematics &amp; Computer Science</h3>
+                <p class="timeline__org" data-i18n="edu1.org">University of Bordeaux</p>
+                <p class="timeline__desc" data-i18n="edu1.desc">Integrated Master's in Engineering (Cursus Master en
+                  Ingénierie) in Optimisation, Statistics and Artificial Intelligence. Currently in year 3.</p>
+                <p class="timeline__sub mono" data-i18n="edu1.courses">Current coursework</p>
+                <ul class="chips">
+                  <li data-i18n="c1">Matrix computations: LU, QR, Cholesky, iterative methods</li>
+                  <li data-i18n="c2">Probability &amp; combinatorics</li>
+                  <li data-i18n="c3">Graph algorithms</li>
+                  <li data-i18n="c4">Descriptive statistics: regression, PCA</li>
+                </ul>
+              </div>
+            </li>
+            <li class="timeline__item reveal">
+              <p class="timeline__date mono" data-i18n="edu3.date">2026 · 6 hours</p>
+              <div class="timeline__main">
+                <h3 class="timeline__title">Claude Code</h3>
+                <p class="timeline__org" data-i18n="edu3.org">Self-training · online course</p>
+                <p class="timeline__desc" data-i18n="edu3.desc">“Become an AI expert with Claude in 2026”, a six-hour
+                  course.</p>
+              </div>
+            </li>
+            <li class="timeline__item reveal">
+              <p class="timeline__date mono">2024</p>
+              <div class="timeline__main">
+                <h3 class="timeline__title" data-i18n="edu2.title">French Baccalauréat, Mathematics &amp; Physics</h3>
+                <p class="timeline__org">Lycée Étienne Restat · Sainte-Livrade-sur-Lot</p>
+                <p class="timeline__desc" data-i18n="edu2.desc">With honours (mention Bien), advanced mathematics option
+                  (Mathématiques expertes).</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 03 Projets : carrousel horizontal (js/main.js) ============ -->
+    <section class="section" id="projects">
+      <div class="container section__grid">
+        <p class="section__label label mono" data-scramble data-i18n="proj.label">03 · Projects</p>
+        <div class="section__body">
+          <h2 class="section__title reveal" data-i18n="proj.title">From theory to code.</h2>
+
+          <div class="carousel reveal" data-carousel>
+            <div class="carousel__track" tabindex="0" role="region" data-i18n-aria="proj.aria"
+              aria-label="Projects, scroll horizontally">
+
+              <!-- Modèle de carte : le recuit simulé. Les autres projets en reprennent la structure. -->
+              <article class="project">
+                <p class="project__meta mono" data-i18n="tsp.meta">2026 · Python · Team of 2 · In progress</p>
+                <h3 class="project__title" data-i18n="tsp.title">Simulated annealing for the travelling salesman
+                  problem</h3>
+                <p class="project__desc" data-i18n="tsp.desc">A generic Metropolis–Hastings optimiser on a discrete
+                  space, driven by the Gibbs measure and a cooling schedule, applied to a dataset of 2,783 instances of
+                  37 to 98 cities. The goal: compare algorithms at equal budget, parallel variants included, with cost
+                  measured in elementary operations rather than wall-clock time.</p>
+                <p class="project__note" data-i18n="tsp.note">First finding: the dataset's “best route” is not optimal.
+                  On instance 0, a simple 2-opt tour measures 683, against 2,966 reported.</p>
+                <p class="project__live mono" data-i18n="tsp.live">The background of this page runs the same method,
+                  live: scrolling down cools the system.</p>
+                <ul class="tags mono">
+                  <li>Python</li>
+                  <li>Monte-Carlo</li>
+                  <li>Metropolis–Hastings</li>
+                  <li data-i18n="tag.optim">Optimisation</li>
+                </ul>
+              </article>
+
+              <article class="project">
+                <p class="project__meta mono" data-i18n="auto.meta">2025 · C · Team of 2</p>
+                <h3 class="project__title" data-i18n="auto.title">Finite automata in&nbsp;C</h3>
+                <p class="project__desc" data-i18n="auto.desc">An automata library inside a supplied interactive shell: from regular expressions to automata and back, built on bit-packed Boolean arrays and graph structures.</p>
+                <p class="project__note" data-i18n="auto.note">My part: the algorithms. Thompson's construction, subset determinisation, Brzozowski minimisation, product intersection, and Brzozowski–McCluskey, from an automaton back to a regular expression.</p>
+                <ul class="tags mono">
+                  <li>C</li>
+                  <li data-i18n="tag.automata">Automata theory</li>
+                  <li data-i18n="tag.regex">Regular expressions</li>
+                  <li>Git</li>
+                </ul>
+              </article>
+
+              <article class="project">
+                <p class="project__meta mono" data-i18n="jewels.meta">2025 · C · Team of 2</p>
+                <h3 class="project__title" data-i18n="jewels.title">Jewels &amp; Algorithms</h3>
+                <p class="project__desc" data-i18n="jewels.desc">The engine of a Candy Crush-style game: stable board generation, swaps, chain reactions under four-way gravity, scoring, levels, saves and three simple AIs. Then a puzzle solver that searches the graph of board configurations by BFS and DFS.</p>
+                <p class="project__note" data-i18n="jewels.note">An 8×8 board has over 10⁵⁰ configurations: the solver never lists them, and stores the boards already visited in a hash table.</p>
+                <ul class="tags mono">
+                  <li>C</li>
+                  <li>BFS · DFS</li>
+                  <li data-i18n="tag.hash">Hash tables</li>
+                </ul>
+              </article>
+
+              <article class="project">
+                <p class="project__meta mono" data-i18n="stock.meta">2026 · Python · Dash · Team of 2</p>
+                <h3 class="project__title" data-i18n="stock.title">Stock-price prediction app</h3>
+                <p class="project__desc" data-i18n="stock.desc">A Python and Dash web app on a Kaggle dataset of listed car manufacturers: candlestick charts, volume histograms, opening and closing prices, a pie chart, and a random-forest forecast of the next opening price. Object-oriented code, with classes split along a model–view–controller architecture.</p>
+                <ul class="tags mono">
+                  <li>Python</li>
+                  <li>Dash</li>
+                  <li data-i18n="tag.rf">Random forest</li>
+                  <li data-i18n="tag.dataviz">Data visualisation</li>
+                  <li data-i18n="tag.oop">OOP</li>
+                </ul>
+              </article>
+
+              <article class="project">
+                <p class="project__meta mono" data-i18n="tents.meta">2025–2026 · C · Team of 3</p>
+                <h3 class="project__title" data-i18n="tents.title">Tents &amp; Trees</h3>
+                <p class="project__desc" data-i18n="tents.desc">A C library for the Tents puzzle, built over two semesters: toric grids, big trees that need two tents, undo and redo, saves, and a generator of solvable grids. Playable in a terminal, an SDL2 app or the browser, through WebAssembly. Over forty unit tests.</p>
+                <p class="project__note" data-i18n="tents.note">My part: the backtracking solver, which places tents tree by tree and cuts any branch where two tents touch or a row or column overflows.</p>
+                <ul class="tags mono">
+                  <li>C</li>
+                  <li data-i18n="tag.backtracking">Backtracking</li>
+                  <li>SDL2</li>
+                  <li>WebAssembly</li>
+                </ul>
+              </article>
+
+              <article class="project">
+                <p class="project__meta mono" data-i18n="air.meta">2025 · R · Team of 3</p>
+                <h3 class="project__title" data-i18n="air.title">Air quality across the world</h3>
+                <p class="project__desc" data-i18n="air.desc">A statistical study of open air-quality data from OpenAQ, about 61,000 measurements: PM2.5, PM10 and NO₂ sorted by country and graded against health thresholds, mapped sensor by sensor on interactive Leaflet maps, averaged per pollutant, and cross-checked in correlation matrices for France, Norway and India. Ended with an oral defence.</p>
+                <p class="project__note" data-i18n="air.note">Conclusion: not every country breathes the same air, and some exceed the WHO's critical thresholds.</p>
+                <ul class="tags mono">
+                  <li>R</li>
+                  <li>Leaflet</li>
+                  <li data-i18n="tag.corr">Correlation matrices</li>
+                  <li data-i18n="tag.dataviz">Data visualisation</li>
+                </ul>
+              </article>
+
+              <article class="project project--soon">
+                <p class="project__meta mono" data-i18n="data.meta">Oct. 2026 · Coming soon</p>
+                <h3 class="project__title" data-i18n="data.title">Data project</h3>
+                <p class="project__desc" data-i18n="data.desc">Second programme project, starting in October 2026.
+                  Details to follow.</p>
+              </article>
+            </div>
+            <p class="carousel__hint mono" aria-hidden="true">
+              <span class="hero__scroll-line"></span>
+              <span data-i18n="proj.hint">Drag to explore</span> →
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 04 Expérience ============ -->
+    <section class="section" id="experience">
+      <div class="container section__grid">
+        <p class="section__label label mono" data-scramble data-i18n="exp.label">04 · Experience</p>
+        <div class="section__body">
+          <h2 class="section__title reveal" data-i18n="exp.title">Learning on the ground.</h2>
+          <ol class="timeline">
+            <li class="timeline__item reveal">
+              <p class="timeline__date mono" data-i18n="e1.date">2026 · 1 month</p>
+              <div class="timeline__main">
+                <h3 class="timeline__title" data-i18n="e1.title">Data intern</h3>
+                <p class="timeline__org">ATEMCO · Bergerac</p>
+                <p class="timeline__desc" data-i18n="e1.desc">Restructured the company's entire stock database in R and
+                  updated its product references, while shadowing a manager in their daily work.</p>
+              </div>
+            </li>
+            <li class="timeline__item reveal">
+              <p class="timeline__date mono" data-i18n="e4.date">2025 · 1 month</p>
+              <div class="timeline__main">
+                <h3 class="timeline__title" data-i18n="e4.title">Intern, joinery</h3>
+                <p class="timeline__org">SoCoo'c · Bayonne</p>
+                <p class="timeline__desc" data-i18n="e4.desc">Assisted a craftsman joiner in fitting kitchens.</p>
+              </div>
+            </li>
+            <li class="timeline__item reveal">
+              <p class="timeline__date mono" data-i18n="e2.date">2024 · 1 month</p>
+              <div class="timeline__main">
+                <h3 class="timeline__title" data-i18n="e2.title">Pastry commis, fixed-term contract</h3>
+                <p class="timeline__org">Miremont · Biarritz</p>
+                <p class="timeline__desc" data-i18n="e2.desc">Preparation following the chefs' recipes and instructions,
+                  product display and upkeep of the pastry kitchen.</p>
+              </div>
+            </li>
+            <li class="timeline__item reveal">
+              <p class="timeline__date mono" data-i18n="e5.date">2020 · 2 weeks</p>
+              <div class="timeline__main">
+                <h3 class="timeline__title" data-i18n="e5.title">Observation internship</h3>
+                <p class="timeline__org">Lachal Astronomie · Bergerac</p>
+                <p class="timeline__desc" data-i18n="e5.desc">Discovered the retail of astronomy equipment alongside the
+                  staff: shadowing the store manager, welcoming and advising customers.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 05 Compétences ============ -->
+    <section class="section" id="skills">
+      <div class="container section__grid">
+        <p class="section__label label mono" data-scramble data-i18n="skills.label">05 · Skills</p>
+        <div class="section__body">
+          <h2 class="section__title reveal" data-i18n="skills.title">Tools of the trade.</h2>
+          <div class="skills">
+            <div class="skills__col reveal">
+              <h3 class="skills__title mono" data-i18n="s1.title">Programming</h3>
+              <ul>
+                <li>Python <small>NumPy · pandas · Matplotlib</small></li>
+                <li>C</li>
+                <li>C++</li>
+                <li>R</li>
+                <li>JavaScript <small>HTML · CSS</small></li>
+                <li>LaTeX</li>
+              </ul>
+            </div>
+            <div class="skills__col reveal">
+              <h3 class="skills__title mono" data-i18n="s2.title">Mathematics</h3>
+              <ul>
+                <li data-i18n="s2.i1">Probability &amp; combinatorics</li>
+                <li data-i18n="s2.i2">Linear algebra &amp; matrix computations</li>
+                <li data-i18n="s2.i6">Analysis</li>
+                <li data-i18n="s2.i3">Optimisation</li>
+                <li data-i18n="s2.i4">Graph theory &amp; algorithms</li>
+                <li data-i18n="s2.i5">Statistics</li>
+              </ul>
+            </div>
+            <div class="skills__col reveal">
+              <h3 class="skills__title mono" data-i18n="s3.title">Tools</h3>
+              <ul>
+                <li>Jupyter</li>
+                <li>VS Code</li>
+                <li>RStudio</li>
+                <li>Excel</li>
+                <li>Notion</li>
+              </ul>
+            </div>
+            <div class="skills__col reveal">
+              <h3 class="skills__title mono" data-i18n="s4.title">Languages</h3>
+              <ul>
+                <li data-i18n="s4.i1">French · native</li>
+                <li data-i18n="s4.i2">English · B2</li>
+                <li data-i18n="s4.i3">Spanish · B1</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 06 Ailleurs ============ -->
+    <section class="section" id="beyond">
+      <div class="container section__grid">
+        <p class="section__label label mono" data-scramble data-i18n="beyond.label">06 · Beyond</p>
+        <div class="section__body">
+          <h2 class="section__title reveal" data-i18n="beyond.title">Beyond the equations.</h2>
+          <div class="beyond">
+            <div class="beyond__item reveal">
+              <h3 data-i18n="b4.title">Finance</h3>
+              <p data-i18n-html="b4.desc">Investing in SICAVs (French open-ended funds). Reading: <em>The Intelligent
+                  Investor</em> (Benjamin Graham), <em>The Psychology of Money</em> (Morgan Housel) and, on
+                mathematics, <em>Mathematica</em> (David Bessis).</p>
+              <p data-i18n-html="b4.self"><em>Self-training</em>: basics of technical analysis.</p>
+            </div>
+            <div class="beyond__item reveal">
+              <h3 data-i18n="b1.title">Music</h3>
+              <p data-i18n="b1.desc">Piano for 12 years, drums for 11, guitar for 2, and electronic music production on
+                Ableton for 5.</p>
+              <p data-i18n-html="b1.stage"><em>On stage</em>: seven years on drums and timpani in the 25-piece jazz
+                band L'ODB and the 50-piece symphony orchestra Cancophonie, in concert. Co-founder of the rock band
+                Les Nut's, with public concerts.</p>
+              <a class="beyond__link mono" href="https://www.youtube.com/@-silver-2922" target="_blank"
+                rel="noopener">YouTube · @-silver-2922 ↗</a>
+            </div>
+            <div class="beyond__item reveal">
+              <h3 data-i18n="b2.title">Astronomy</h3>
+              <p data-i18n="b2.desc">Deep-sky observation with telescopes, galaxies and nebulae.</p>
+              <p data-i18n-html="b2.lead"><em>Workshop leader</em>: co-led telescope workshops introducing varied
+                audiences to the Moon, the planets, the constellations and the deep sky.</p>
+            </div>
+            <div class="beyond__item reveal">
+              <h3 data-i18n="b5.title">Entrepreneurship</h3>
+              <p data-i18n="b5.desc">Self-taught through podcasts and online training, notably on building a business
+                by selling services.</p>
+            </div>
+            <div class="beyond__item reveal">
+              <h3 data-i18n="b3.title">Sport</h3>
+              <p data-i18n="b3.desc">Judo and ju-jitsu from age 5 to 15, with inter-club competitions. Calisthenics
+                today.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 07 Contact ============ -->
+    <section class="section contact" id="contact">
+      <div class="container section__grid">
+        <p class="section__label label mono" data-scramble data-i18n="contact.label">07 · Contact</p>
+        <div class="section__body">
+          <h2 class="contact__title display reveal" data-i18n="contact.title">Let's talk.</h2>
+          <p class="contact__text reveal" data-i18n="contact.text">Open to internship opportunities for summer 2027, in
+            finance or mathematical research, and always happy to talk about probability, optimisation or markets.</p>
+          <a class="contact__mail reveal"
+            href="mailto:nathan.anciauxbillerey@gmail.com">nathan.anciauxbillerey@gmail.com</a>
+          <ul class="contact__links mono reveal">
+            <!-- TODO : remplacer "#" par les vraies adresses -->
+            <li><a href="https://www.linkedin.com/in/anciauxnathancmi/" target="_blank" rel="noopener">LinkedIn ↗</a></li>
+            <li><a href="#" data-todo="github">GitHub ↗</a></li>
+            <li><a href="assets/CV_Nathan_Anciaux.pdf" download data-i18n="contact.cv">Download CV (PDF) ↓</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ Pied de page ============ -->
+  <footer class="footer">
+    <div class="container footer__inner mono">
+      <p>© <span id="year">2026</span> Nathan Anciaux</p>
+      <p data-i18n="footer.built">Built with HTML, CSS &amp; JavaScript</p>
+      <a href="#top" data-i18n="footer.top">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <!-- ============ Barre de bord : état du recuit simulé en direct ============ -->
+  <aside class="hud mono intro" aria-hidden="true">
+    <div class="hud__inner container">
+      <span class="hud__title" data-i18n="hud.title">Simulated annealing · Metropolis</span>
+      <span class="hud__metric"><b>T</b><span id="hudT">0.900</span></span>
+      <span class="hud__metric hud__opt"><b data-i18n="hud.iter">iter</b><span id="hudIter">0</span></span>
+      <span class="hud__metric hud__opt"><b data-i18n="hud.accept">accept</b><span id="hudAcc">100%</span></span>
+      <span class="hud__metric hud__opt"><b data-i18n="hud.best">best E</b><span id="hudBest">0.000</span></span>
+      <span class="hud__schedule">
+        <span class="hud__bar"><span id="hudBar"></span></span>
+        <span class="hud__phase" id="hudPhase">exploration</span>
+      </span>
+    </div>
+  </aside>
+
+  <div class="grain" aria-hidden="true"></div>
+
+  <script type="importmap">
+    { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js" } }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js" defer></script>
+  <script src="js/i18n.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script type="module" src="js/scene.js"></script>
+</body>
+
+</html>
