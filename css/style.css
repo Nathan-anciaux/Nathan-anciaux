@@ -204,6 +204,13 @@ section[id] {
   margin: 0 2px;
 }
 
+/* Logo : la descente de gradient du CV (lignes de niveau et trajectoire vers le minimum) */
+.nav__logo-svg {
+  display: block;
+  height: 32px;
+  width: auto;
+}
+
 .nav__links {
   display: flex;
   gap: clamp(16px, 2.2vw, 32px);
@@ -422,6 +429,37 @@ main,
 
   100% {
     transform: translateX(100%);
+  }
+}
+
+/* En haut du site, l'indicateur descend : texte au-dessus, ligne verticale qui se
+   remplit du haut vers le bas. La version horizontale reste celle du carrousel. */
+.hero__scroll {
+  flex-direction: column;
+  gap: 12px;
+}
+
+.hero__scroll .hero__scroll-line {
+  width: 1px;
+  height: 56px;
+}
+
+.hero__scroll .hero__scroll-line::after {
+  transform: translateY(-100%);
+  animation-name: scrollLineDown;
+}
+
+@keyframes scrollLineDown {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  50% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(100%);
   }
 }
 
